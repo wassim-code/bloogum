@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}Logged Out - Bloogum{% endblock %}
+
+{% block content %}
+	<h4 class="text-muted my-3">You have been logged out.</h4>
+	<p>Only members using a shared or public computer need to end each visit to Bloogum by using the log out link to avoid being spied by others.</p>
+	<hr>
+	<a href="{% url 'home' %}">Return To Home Page</a>
+{% endblock %}

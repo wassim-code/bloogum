@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}{{ request.user.username }} - Bloogum{% endblock %}
+
+{% block content %}
+	<div class="content-section mt-3 mb-3 mb-md-0">
+		<div class="media">
+			<img class="rounded-circle account-img" src="{{ user.profile.img.url }}">
+			<div class="media-body">
+				<h2>{{ user.username }}</h2>
+				<p class="article-content">{{ user.email }}</p>
+			</div>
+		</div>
+		<form method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{ u_form|crispy }}
+            {{ p_form|crispy }}
+            <button class="btn btn-outline-primary" type="submit">Update</button>
+		</form>
+	</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+body {
+	background-image: url(../img/background.png) !important;
+}
+
+.logo {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.logo a {
+	color: black;
+}
+
+.logo a:active,
+.logo a:hover {
+	text-decoration: none;
+}

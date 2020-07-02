@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	{% if not messages %}
+		<h2 class="mt-3 ml-2">Bloogum posts</h2>
+	{% endif %}
+	{% for post in posts %}
+		<div class="media content-section my-3">
+			<a href="{% url 'user_posts' post.author.username %}">
+				<img src="{{ post.author.profile.img.url }}" class="rounded-circle article-img mr-4">
+			</a>
+			<div class="media-body">
+				<div class="article-metadata">
+					<a class="profile-link" href="{% url 'user_posts' post.author.username %}">
+						<strong>{{ post.author }}</strong>
+					</a>
+					<small class="text-muted ml-2">{{ post.pub_date }}</small>
+				</div>
+				<h3>
+					<a href="{% url 'post_detail' post.pk %}" class="article-title">{{ post.title }}</a>
+				</h3>
+				<p class="article-content">{{ post.content }}</p>
+			</div>
+		</div>
+	{% endfor %}
+
+	{% if is_paginated %}
+		{% include 'paginator.html' %}
+	{% endif %}
+{% endblock %}

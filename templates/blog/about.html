@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}About - Bloogum{% endblock %}
+
+{% block content %}
+	<h2 class="mt-3 text-muted">About Bloogum</h2>
+	<hr>
+	<p>Bloogum is blog created by me and deployed to the World Wide Web in 2020. It's fully written in Django, the most popular Python framework to build web applications and Bootstrap.
+	Its main topics are:</p>
+	<ul>
+		<li>Computer Programming.</li>
+		<li>Web Developement</li>
+		<li>Mobile Developement</li>
+		<li>High-Tech</li>
+	</ul>
+	<hr>
+	<a href="{% url 'home' %}">Return To Home Page</a>
+{% endblock %}

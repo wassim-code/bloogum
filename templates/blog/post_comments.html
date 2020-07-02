@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}{{ post.title }} - Bloogum{% endblock %}
+
+{% block content %}
+	<div class="media content-section my-3">
+		<a href="{% url 'user_posts' post.author.username %}">
+			<img src="{{ post.author.profile.img.url }}" class="rounded-circle article-img mr-4">
+		</a>
+		<div class="media-body">
+			<div class="article-metadata">
+				<a class="profile-link" href="{% url 'user_posts' post.author.username %}">
+					<strong>{{ post.author }}</strong>
+				</a>
+				<small class="text-muted ml-2">{{ post.pub_date }}</small>
+			</div>
+			{% if post.author == user %}
+				<a class="btn btn-secondary btn-sm my-1 mr-2" href="{% url 'post_update' post.pk %}">
+					Update
+				</a>
+		        <a class="btn btn-danger btn-sm" href="{% url 'post_delete' post.pk %}">Delete</a>
+		    {% endif %}
+			<h3>{{ post.title }}</h3>
+			<p class="article-content">{{ post.content }}</p>
+		</div>
+	</div>
+	{% if comments %}
+		<h3>{{ comments_count }} Comment{{ comments_count|pluralize }}:</h3>
+		{% for comment in comments %}
+			<div class="media comment-box my-3">
+				<a href="{% url 'user_posts' comment.author.username %}">
+					<img src="{{ comment.author.profile.img.url }}" class="rounded-circle article-img mr-4">
+				</a>
+				<div class="media-body">
+					<div class="article-metadata">
+						<a class="profile-link" href="{% url 'user_posts' comment.author.username %}">
+							<strong>{{ comment.author }}</strong>
+						</a>
+						<small class="text-muted ml-2">{{ comment.pub_date }}</small>
+					</div>
+					{% if comment.author == user %}
+						<a class="btn btn-secondary btn-sm my-1 mr-2" href="{% url 'comment_update' post.pk comment.pk %}">
+							Update
+						</a>
+				        <a class="btn btn-danger btn-sm" href="{% url 'comment_delete' post.pk comment.pk %}">Delete</a>
+				    {% endif %}
+					<p class="article-content">{{ comment.content }}</p>
+				</div>
+			</div>
+		{% endfor %}
+	{% else %}
+		<p>No Comment are available.</p>
+	{% endif %}
+	<a href="{% url 'comment_create' post.pk %}" class="btn btn-outline-primary mb-2">New Comment</a>
+	{% if is_paginated %}
+		{% include 'paginator.html' %}
+	{% endif %}
+{% endblock %}

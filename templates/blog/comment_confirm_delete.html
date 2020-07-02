@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Delete Comment - Bloogum{% endblock %}
+
+{% block content %}
+	<div class="content-section mt-3">
+		<h3 class="mb-3">Are you sure you want to delete the comment "{{ trun }}"?</h3>
+		<form method="POST">
+			{% csrf_token %}
+			<button type="submit" class="btn btn-outline-danger mr-2">Yes, Delete</button>
+			<a href="{% url 'post_detail' comment.post.pk %}" class="btn btn-secondary">Cancel</a>
+		</form>
+	</div>
+{% endblock  %}

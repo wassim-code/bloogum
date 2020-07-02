@@ -1,0 +1,66 @@
+body {
+	background-color: #fafafa;
+}
+
+.bg-blue {
+	background-color: #0a6b9b;
+}
+
+.navbar-brand {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.content-section {
+	padding: 20px;
+	border: 2px solid #dddddd;
+	border-radius: 20px;
+	background-color: #FFFFFF;
+}
+
+.comment-box {
+	padding: 10px;
+	border: 2px solid #dddddd;
+	border-radius: 10px;
+	background-color: #FFFFFF;
+}
+
+.article-metadata {
+	padding-bottom: 2px;
+	border-bottom: 1px solid #dddddd;
+	margin-bottom: 3px;
+}
+
+.article-title {
+	color: #444444;
+}
+
+.article-title:hover {
+	color: #428bca;
+	text-decoration: none;
+}
+
+.article-img {
+	height: 64px;
+	width: 64px;
+	
+}
+
+.account-img {
+	height: 125px;
+	width: 125px;
+	margin-right: 20px;
+	margin-bottom: 16px;
+}
+
+.profile-link {
+	color: black;
+}
+
+.profile-link:hover {
+	color: black;
+	text-decoration: none;
+}

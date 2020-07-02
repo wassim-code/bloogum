@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Update Comment - Bloogum{% endblock %}
+
+{% block content %}
+	<div class="content-section mt-3 mb-3">
+		<h3>Update comment "{{ trun }}"</h3>
+		<form method="POST">
+			{% csrf_token %}
+			{{ form|crispy }}
+			<button type="submit" class="btn btn-primary">Apply Changes</button>
+		</form>
+	</div>
+{% endblock  %}
